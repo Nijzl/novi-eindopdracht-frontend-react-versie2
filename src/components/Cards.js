@@ -10,6 +10,8 @@ function Cards(){
                 <div className="cards__wrapper">
                     <ul className="cards__items">
                         <CardItem src="../assets/food2.png" text=" This is text " label=" This is label " path="/favourites"/> {/* ITEM MOET AANGEPAST WORDEN AAN API */}
+                        <CardItem src="../assets/food2.png" text=" This is text " label=" This is label " path="/favourites"/> {/* ITEM MOET AANGEPAST WORDEN AAN API */}
+                        <CardItem src="../assets/food2.png" text=" This is text " label=" This is label " path="/favourites"/> {/* ITEM MOET AANGEPAST WORDEN AAN API */}
                     </ul>
                 </div>
             </div>

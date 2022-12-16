@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import "firebase/auth";
 import './App.css';
 import Navbar from "./components/Navbar";
@@ -11,6 +11,9 @@ import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
 import Footer from "./components/Footer";
 import Login from "./pages/Login";
+import {getAuth} from "firebase/auth";
+
+const auth = getAuth();
 
 function App() {
 

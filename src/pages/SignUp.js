@@ -12,14 +12,12 @@ function SignUp(){
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
-
     const signUp = () => {
 
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
                 const user = userCredential.user;
-                console.log(user);
                 alert("Create User Successful");
                 // ...
             })
@@ -69,7 +67,6 @@ function SignUp(){
                         </Link>
                     </div>
                 </div>
-
             </section>
         </div>
     );

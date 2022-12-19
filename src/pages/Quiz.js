@@ -1,27 +1,25 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import FlashcardList from "../components/FlashcardList";
 import "../styles/Quiz.css";
 import axios from 'axios';
+import { Button } from "../components/Button";
 
 function Quiz(){
 
     const [flashcards, setFlashcards] = useState(sampleFlashcards);
+    const [categories, setCategories] = useState([])
 
-    useEffect(() => {axios.
-        get("https://opentdb.com/api.php?amount=10")
+    const categoryEl = useRef();
+    const amountEl = useRef();
+
+    useEffect(() => {axios
+        .get("https://opentdb.com/api_category.php")
         .then(res => {
-            setFlashcards(res.data.results.map((questionItem, index) => {
-                const answer = decodeString(questionItem.correct_answer)
-                const options = [...questionItem.incorrect_answers.map(a => decodeString(a)), answer]
-                return{
-                    id: `${index}-${Date.now()}`,
-                    question: decodeString(questionItem.question),
-                    answer: questionItem.correct_answer,
-                    options: options.sort(() => Math.random() - 0.5)
-                }
-
-        }))
+            setCategories(res.data.trivia_categories)
         })
+    }, [] )
+
+    useEffect(() => {
     }, [])
 
     function decodeString(str){
@@ -30,31 +28,77 @@ function Quiz(){
         return textArea.value
     }
 
+    function handleSubmit(e){
+        e.preventDefault()
+        axios.
+        get("https://opentdb.com/api.php", {
+            params:{
+                amount: amountEl.current.value,
+                category: categoryEl.current.value
+            }
+        })
+            .then(res => {
+                setFlashcards(res.data.results.map((questionItem, index) => {
+                    const answer = decodeString(questionItem.correct_answer)
+                    const options = [...questionItem.incorrect_answers.map(a => decodeString(a)), answer]
+                    return{
+                        id: `${index}-${Date.now()}`,
+                        question: decodeString(questionItem.question),
+                        answer: questionItem.correct_answer,
+                        options: options.sort(() => Math.random() - 0.5)
+                    }
+
+                }))
+            })
+    }
+
     return(
-        <div className="card-container">
-            <FlashcardList flashcards={flashcards}/>
-        </div>
+        <>
+            <form className="header" onSubmit={handleSubmit}>
+                <div className="form-group">
+                    <label htmlFor="category"> Category </label>
+                    <select id="category" ref={categoryEl}>
+                        {categories.map(category => {
+                            return <option value={category.id} key={category.id}> {category.name} </option>
+                        })}
+                    </select>
+                </div>
+                <div className="form-group">
+                    <label htmlFor="amount"> Number of Questions </label>
+                    <input type="number" id="amount" min="1" step="1" defaultValue={10} ref={amountEl}/>
+                </div>
+                <div className="form-group">
+                    <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--medium'> Generate </Button>
+                </div>
+            </form>
+            <div className="card-container">
+                <FlashcardList flashcards={flashcards}/>
+            </div>
+        </>
     );
+
+
+
 }
 
 const sampleFlashcards = [
     {
         id:1,
-        question: "Sample Question 1",
-        answer: "1",
-        options: ["1", "2", "3"]
+        question: "Welcome to Flashcard Trivia!",
+        answer: "Enjoy!",
+        options: []
     },
     {
         id:2,
-        question: "Sample Question 2",
-        answer: "2",
-        options: ["1", "2", "3"]
+        question: "Select your category and number of questions above",
+        answer: "You can do this as often as you want with as many cards as you want",
+        options: []
     },
     {
         id:3,
-        question: "Sample Question 3",
-        answer: "3",
-        options: ["1", "2", "3"]
+        question: "Click the card to see the answer",
+        answer: "Yes, like that!",
+        options: []
     }
 ]
 

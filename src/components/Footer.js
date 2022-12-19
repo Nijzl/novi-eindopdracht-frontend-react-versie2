@@ -25,23 +25,23 @@ function Footer() {
                     </form>
                 </div>
             </section>
-            <div class='footer-links'>
+            <div className='footer-links'>
                 <div className='footer-link-wrapper'>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>About Us</h2>
                         <Link to='/'>How it works</Link>
                         <Link to='/'>Reviews</Link>
                         <Link to='/signup'>Sign up</Link>
                         <Link to='/'>Terms of Service</Link>
                     </div>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>Contact Us</h2>
                         <p> E: lorem@ipsum.com</p>
                         <p> P: 06-12345678 </p>
                     </div>
                 </div>
                 <div className='footer-link-wrapper'>
-                    <div class='footer-link-items'>
+                    <div className='footer-link-items'>
                         <h2>Social Media</h2>
                         <a href="https://instagram.com">Instagram</a>
                         <a href="https://facebook.com">Facebook</a>
@@ -50,29 +50,29 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <section class='social-media'>
-                <div class='social-media-wrap'>
-                    <div class='footer-logo'>
+            <section className='social-media'>
+                <div className='social-media-wrap'>
+                    <div className='footer-logo'>
                         <Link to='/' className='social-logo'>
                             Placeholder Name
                         </Link>
                     </div>
-                    <small class='website-rights'>Placeholder name © 2022</small>
-                    <div class='social-icons'>
-                        <a href="https:facebook.com" class='social-icon-link facebook'>
-                            <i class='fab fa-facebook-f' />
+                    <small className='website-rights'>Placeholder name © 2022</small>
+                    <div className='social-icons'>
+                        <a href="https:facebook.com" className='social-icon-link facebook'>
+                            <i className='fab fa-facebook-f' />
                         </a>
-                        <a href="https://instagram.com" class='social-icon-link instagram'>
-                            <i class='fab fa-instagram' />
+                        <a href="https://instagram.com" className='social-icon-link instagram'>
+                            <i className='fab fa-instagram' />
                         </a>
-                        <a href="https://youtube.com" class='social-icon-link youtube'>
-                            <i class='fab fa-youtube' />
+                        <a href="https://youtube.com" className='social-icon-link youtube'>
+                            <i className='fab fa-youtube' />
                         </a>
-                        <a href="https://twitter.com" class='social-icon-link twitter'>
-                            <i class='fab fa-twitter' />
+                        <a href="https://twitter.com" className='social-icon-link twitter'>
+                            <i className='fab fa-twitter' />
                         </a>
-                        <a href="https://linkedin.com" class='social-icon-link linkedIn'>
-                            <i class='fab fa-linkedin' />
+                        <a href="https://linkedin.com" className='social-icon-link linkedIn'>
+                            <i className='fab fa-linkedin' />
                         </a>
                     </div>
                 </div>

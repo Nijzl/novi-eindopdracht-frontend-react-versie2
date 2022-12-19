@@ -6,16 +6,27 @@
 }
 
 .home,
+.quiz,
 .allrecipes,
-.favourites,
+.fridge,
 .search,
 .profile,
-.signup {
+.signup,
+.login {
   display: flex;
   height: 90vh;
   align-items: center;
   justify-content: center;
   font-size: 3rem;
+}
+
+.quiz {
+  /*  background-image: url('/assets/food-stamppot.jpg');*/
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: #fff;
+  font-size: 100px;
 }
 
 .allrecipes {
@@ -27,7 +38,7 @@
   font-size: 100px;
 }
 
-.favourites {
+.fridge {
 /*  background-image: url('/assets/food-kip-tandoori.jpg');*/
   background-position: center;
   background-size: cover;

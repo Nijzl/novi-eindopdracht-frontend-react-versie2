@@ -1,8 +1,7 @@
 import React, {useState} from "react";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import {Link, Navigate} from "react-router-dom";
+import {Link, Navigate, redirect} from "react-router-dom";
 import {Button} from "../components/Button";
-
 
 function Login(){
 
@@ -45,11 +44,9 @@ function Login(){
                             placeholder="Your password"
                             onChange={(e) => setPassword(e.target.value)}/>
                         <div className="login-btns">
-                            <Link to="/profile" className="btn-mobile">
                                 <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--large' onClick={signIn}>
                                     SIGN IN
                                 </Button>
-                            </Link>
                         </div>
                     </form>
                 </div>
@@ -59,7 +56,7 @@ function Login(){
                     <div className="login-btns">
                         <Link to="/signup" className="btn-mobile">
                             <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>
-                                SIGN Up
+                                SIGN UP
                             </Button>
                         </Link>
                     </div>

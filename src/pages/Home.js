@@ -1,10 +1,11 @@
-import React from "react";
+import React, {useState} from "react";
 import HeroSection from "../components/HeroSection";
 
-function Favourites(){
+function Home(){
+
     return(
         <HeroSection/>
     );
 }
 
-export default Favourites;
+export default Home;

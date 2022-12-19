@@ -3,17 +3,17 @@ import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import app from "../Firebase";
 import "../styles/SignUp.css";
 import { Button } from "../components/Button";
-import {Link} from "react-router-dom";
+import {Link, redirect, useNavigate} from "react-router-dom";
 
 function SignUp(){
 
     const auth = getAuth(app);
 
+    const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
 
     const signUp = () => {
-
         createUserWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
                 // Signed in
@@ -37,6 +37,12 @@ function SignUp(){
                     <form>
                         <input
                             className="login-input"
+                            name="username"
+                            type={"text"}
+                            placeholder="Your username"
+                            onChange={(e) => setUsername(e.target.value)}/>
+                        <input
+                            className="login-input"
                             name="email"
                             type={"email"}
                             placeholder="Your email"
@@ -48,11 +54,9 @@ function SignUp(){
                             placeholder="Your password"
                             onChange={(e) => setPassword(e.target.value)}/>
                         <div className="login-btns">
-                            <Link to="/profile" className="btn-mobile">
                                 <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--large' onClick={signUp}>
                                     SIGN UP
                                 </Button>
-                            </Link>
                         </div>
                     </form>
                 </div>

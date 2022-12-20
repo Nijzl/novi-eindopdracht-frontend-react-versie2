@@ -8,25 +8,31 @@ function HeroSection() {
 
     return (
         <div className='hero-container'>
-            <h1>ADVENTURE AWAITS</h1>
-            <p>What will you eat today?</p>
+            <h1> THE GAME IS ON </h1>
+            <p>WHAT WILL YOU PLAY TODAY?</p>
             <div className='hero-btns'>
-                <Link to="/quiz" className="btn-mobile">
+                <Link to="/flashcards" className="btn-mobile">
                     <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>
-                        TAKE THE QUIZ
+                        PLAY FLASHCARDS
                     </Button>
                 </Link>
-                <Link to="/fridge" className="btn-mobile">
+                <Link to="/" className="btn-mobile">
                     <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>
-                        CHECK YOUR FRIDGE
+                        PLAY WORDLE
                     </Button>
                 </Link>
-                <Link to="/allrecipes" className="btn-mobile">
-                    <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--large'>
-                        ALL RECIPES
+                <Link to="/" className="btn-mobile">
+                    <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>
+                        PLAY DUOLINGO
                     </Button>
                 </Link>
             </div>
+                <h2> GOT SOME GOOD TRIVIA? </h2>
+                <Link to="/" className="btn-mobile">
+                    <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--large'>
+                        SUBMIT A QUESTION
+                    </Button>
+                </Link>
         </div>
     );
 }

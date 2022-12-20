@@ -1,12 +1,12 @@
 import React, { useState, useEffect, useRef } from "react";
 import FlashcardList from "../components/FlashcardList";
-import "../styles/Quiz.css";
+import "../styles/Flashcards.css";
 import axios from 'axios';
 import { Button } from "../components/Button";
 
-function Quiz(){
+function Flashcards(){
 
-    const [flashcards, setFlashcards] = useState(sampleFlashcards);
+    const [flashcards, setFlashcards] = useState(ruleFlashcards);
     const [categories, setCategories] = useState([])
 
     const categoryEl = useRef();
@@ -81,11 +81,11 @@ function Quiz(){
 
 }
 
-const sampleFlashcards = [
+const ruleFlashcards = [
     {
         id:1,
         question: "Welcome to Flashcard Trivia!",
-        answer: "Enjoy!",
+        answer: "This is a flashcard!",
         options: []
     },
     {
@@ -99,7 +99,13 @@ const sampleFlashcards = [
         question: "Click the card to see the answer",
         answer: "Yes, like that!",
         options: []
+    },
+    {
+        id:4,
+        question: "We hope you enjoy!",
+        answer: "Get clicking!",
+        options: []
     }
 ]
 
-export default Quiz;
+export default Flashcards;

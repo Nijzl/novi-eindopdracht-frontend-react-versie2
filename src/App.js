@@ -4,7 +4,7 @@ import "firebase/auth";
 import './App.css';
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
-import Quiz from "./pages/Quiz";
+import Flashcards from "./pages/Flashcards";
 import AllRecipes from "./pages/AllRecipes";
 import Fridge from "./pages/Fridge";
 import Search from "./pages/Search";
@@ -24,7 +24,7 @@ function App() {
             <Navbar/>
             <Routes>
                 <Route path='/' exact element={<Home/>}/> {/* Home */}
-                <Route path='/quiz' exact element={<Quiz/>}/> {/* Flashcards */}
+                <Route path='/flashcards' exact element={<Flashcards/>}/> {/* Flashcards */}
                 <Route path='/allrecipes' element={<AllRecipes/>}/> {/* All Recipes*/}
                 <Route path='/fridge' element={<Fridge/>}/> {/* In the Fridge */}
                 <Route path='/search' element={<Search/>}/> {/* Search Recipe */}

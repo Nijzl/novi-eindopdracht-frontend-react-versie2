@@ -8,7 +8,7 @@ function Footer() {
         <div className='footer-container'>
             <section className='footer-subscription'>
                 <p className='footer-subscription-heading'>
-                    Subscribe for new recipes and regular updates up our team
+                    Subscribe for more games and regular updates up our team
                 </p>
                 <p className='footer-subscription-text'>
                     You can unsubscribe at any time
@@ -28,27 +28,27 @@ function Footer() {
             <div className='footer-links'>
                 <div className='footer-link-wrapper'>
                     <div className='footer-link-items'>
-                        <h2>About Us</h2>
+                        <h2> ABOUT </h2>
                         <Link to='/'>How it works</Link>
                         <Link to='/'>Reviews</Link>
                         <Link to='/signup'>Sign up</Link>
                         <Link to='/'>Terms of Service</Link>
                     </div>
                     <div className='footer-link-items'>
-                        <h2>Contact Us</h2>
+                        <h2> CONTACT </h2>
                         <p> E: lorem@ipsum.com</p>
                         <p> P: 06-12345678 </p>
                     </div>
                 </div>
-                <div className='footer-link-wrapper'>
+{/*                <div className='footer-link-wrapper'>
                     <div className='footer-link-items'>
-                        <h2>Social Media</h2>
+                        <h2> SOCIALS </h2>
                         <a href="https://instagram.com">Instagram</a>
                         <a href="https://facebook.com">Facebook</a>
                         <a href="https://youtube.com">Youtube</a>
                         <a href="https://twitter.com">Twitter</a>
                     </div>
-                </div>
+                </div>*/}
             </div>
             <section className='social-media'>
                 <div className='social-media-wrap'>

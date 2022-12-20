@@ -54,12 +54,10 @@
     transition: all 0.2s ease-out;
 }
 
-/*
-SOLID WHITE LINE TO SHOW THE PAGE YOU'RE ON
-nav-links li.active{
+nav-links:active{
     border-bottom: 4px solid #fff;
 }
-*/
+
 
 .fa-bars {
     color: #fff;

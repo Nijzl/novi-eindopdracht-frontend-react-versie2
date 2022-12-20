@@ -33,7 +33,7 @@ function Navbar(){
             <nav className="navbar">
                 <div className="navbar-container">
                     <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
-                        Placeholder Name
+                        Placeholder
                     </Link>
                     <div className="menu-icon" onClick={handleClick}>
                         <i className={click ? "fas fa-times" : "fas fa-bars"}/>
@@ -41,37 +41,37 @@ function Navbar(){
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
                             <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                                Home
+                                CLASSIC QUIZ
                             </Link>
                         </li>
                         <li className="nav-item">
-                            <Link to="/quiz" className="nav-links" onClick={closeMobileMenu}>
-                                Flashcards
+                            <Link to="/flashcards" className="nav-links" onClick={closeMobileMenu}>
+                                FLASHCARDS
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/allrecipes" className="nav-links" onClick={closeMobileMenu}>
-                                All Recipes
+                                WORDLE
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/fridge" className="nav-links" onClick={closeMobileMenu}>
-                                Fridge
+                                DUOLINGO
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/search" className="nav-links" onClick={closeMobileMenu}>
-                                Search
+                                SUBMIT A QUESTION
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/profile" className="nav-links" onClick={closeMobileMenu}>
-                                Profile
+                                PROFILE
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/signup" className="nav-links-mobile" onClick={closeMobileMenu}>
-                                Sign up
+                                SIGN UP
                             </Link>
                         </li>
                     </ul>

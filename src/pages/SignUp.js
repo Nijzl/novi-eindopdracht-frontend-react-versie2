@@ -1,111 +1,112 @@
-import React, {useState} from "react";
-import {getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
-import app from "../Firebase";
+import React, { useEffect, useState } from "react";
+import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "firebase/auth";
+import { auth } from "../FirebaseConfig";
 import "../styles/SignUp.css";
 import { Button } from "../components/Button";
-import {Link, redirect, useNavigate} from "react-router-dom";
 
 function SignUp(){
 
-    const auth = getAuth(app);
+    const [registerEmail, setRegisterEmail] = useState("");
+    const [registerPassword, setRegisterPassword] = useState("");
+    const [loginEmail, setLoginEmail] = useState("");
+    const [loginPassword, setLoginPassword] = useState("");
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
+    const [user, setUser] = useState({});
 
-    const signUp = () => {
-        createUserWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                alert("Create User Successful");
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                /*const errorMessage = error.message;*/
-                alert(errorCode);
-                // ..
-            });
-    }
+    useEffect(() => {
+        onAuthStateChanged(auth, (currentUser) => {
+            setUser(currentUser);
+        });
+    })
 
-    const signIn = () => {
-        signInWithEmailAndPassword(auth, email, password)
-            .then((userCredential) => {
-                // Signed in
-                const user = userCredential.user;
-                console.log(user);
-                alert("You are signed in");
-                // ...
-            })
-            .catch((error) => {
-                const errorCode = error.code;
-                /*const errorMessage = error.message;*/
-                alert(errorCode);
-            });
-    }
 
-    return(
+    const register = async () => {
+        try {
+            const user = await createUserWithEmailAndPassword(
+                auth,
+                registerEmail,
+                registerPassword
+            );
+            console.log(user);
+        } catch (error) {
+            console.log(error.message);
+            alert(error.message);
+        }
+    };
+
+    const login = async () => {
+        try {
+            const user = await signInWithEmailAndPassword(
+                auth,
+                loginEmail,
+                loginPassword
+            );
+            console.log(user);
+        } catch (error) {
+            console.log(error.message);
+            alert(error.message);
+        }
+    };
+
+    const logout = async () => {
+        await signOut(auth);
+    };
+
+    return (
         <div className="login-container">
-            <h1> SIGN IN </h1>
-            <section className="login-content">
-                <div className="input-areas">
-                    <form>
-                        <input
-                            className="login-input"
-                            name="email"
-                            type={"email"}
-                            placeholder="Your email"
-                            onChange={(e) => setEmail(e.target.value)}/>
-                        <input
-                            className="login-input"
-                            name="password"
-                            type={"password"}
-                            placeholder="Your password"
-                            onChange={(e) => setPassword(e.target.value)}/>
-                        <div className="login-btns">
-                            <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large' onClick={signIn}>
-                                SIGN IN
-                            </Button>
-                        </div>
-                    </form>
-                </div>
+            <div className="register-user">
+                <h3> Register User </h3>
+                <input
+                    className="auth-input"
+                    type={"email"}
+                    placeholder="Your Email"
+                    onChange={(event) => {
+                        setRegisterEmail(event.target.value);
+                    }}
+                />
+                <input
+                    className="auth-input"
+                    type={"password"}
+                    placeholder="Your Password"
+                    onChange={(event) => {
+                        setRegisterPassword(event.target.value);
+                    }}
+                />
 
-{/*                <div className='input-areas'>
-                    <h1> <br/> Already have an account? </h1>
-                    <div className="login-btns">
-                        <Link to="/login" className="btn-mobile">
-                            <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large'>
-                                SIGN IN
-                            </Button>
-                        </Link>
-                    </div>
-                </div>*/}
+                <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--medium' onClick={register}> Create User </Button>
+            </div>
+            <div className="login-user">
+                <h3> Login </h3>
+                <input
+                    className="auth-input"
+                    type={"email"}
+                    placeholder="Your Email"
+                    onChange={(event) => {
+                        setLoginEmail(event.target.value);
+                    }}
+                />
+                <input
+                    className="auth-input"
+                    type={"password"}
+                    placeholder="Your Password"
+                    onChange={(event) => {
+                        setLoginPassword(event.target.value);
+                    }}
+                />
 
-            </section>
-            <h1> SIGN UP </h1>
-            <section className="login-content">
-                <div className="input-areas">
-                    <form>
-                        <input
-                            className="login-input"
-                            name="email"
-                            type={"email"}
-                            placeholder="Your email"
-                            onChange={(e) => setEmail(e.target.value)}/>
-                        <input
-                            className="login-input"
-                            name="password"
-                            type={"password"}
-                            placeholder="Your password"
-                            onChange={(e) => setPassword(e.target.value)}/>
-                        <div className="login-btns">
-                            <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--large' onClick={signUp}>
-                                SIGN UP
-                            </Button>
-                        </div>
-                    </form>
-                </div>
-            </section>
+                <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--medium' onClick={login}> Login</Button>
+            </div>
+            <div className="current-user">
+                <h4> User Logged In: </h4>
+                {user?.email}
+            </div>
+            <div className="logout-user">
+                <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--medium' onClick={logout}> Sign Out </Button>
+            </div>
+
+
+
+
         </div>
     );
 }

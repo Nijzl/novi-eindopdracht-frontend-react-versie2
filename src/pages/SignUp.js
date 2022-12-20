@@ -72,7 +72,6 @@ function SignUp(){
                         setRegisterPassword(event.target.value);
                     }}
                 />
-
                 <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--medium' onClick={register}> Create User </Button>
             </div>
             <div className="login-user">
@@ -93,7 +92,6 @@ function SignUp(){
                         setLoginPassword(event.target.value);
                     }}
                 />
-
                 <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--medium' onClick={login}> Login</Button>
             </div>
             <div className="current-user">

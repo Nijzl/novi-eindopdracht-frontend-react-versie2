@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "firebase/auth";
 import { auth } from "../FirebaseConfig";
-import "../styles/SignUp.css";
 import { Button } from "../components/Button";
+import "../styles/SignUp.css";
 
 function SignUp(){
 
@@ -18,7 +18,6 @@ function SignUp(){
             setUser(currentUser);
         });
     })
-
 
     const register = async () => {
         try {
@@ -54,8 +53,9 @@ function SignUp(){
 
     return (
         <div className="login-container">
+            <h1> COME AND GO </h1>
             <div className="register-user">
-                <h3> Register User </h3>
+                <h3> REGISTER </h3>
                 <input
                     className="auth-input"
                     type={"email"}
@@ -74,8 +74,9 @@ function SignUp(){
                 />
                 <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--medium' onClick={register}> Create User </Button>
             </div>
+
             <div className="login-user">
-                <h3> Login </h3>
+                <h3> SIGN IN </h3>
                 <input
                     className="auth-input"
                     type={"email"}
@@ -94,17 +95,12 @@ function SignUp(){
                 />
                 <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--medium' onClick={login}> Login</Button>
             </div>
+
             <div className="current-user">
-                <h4> User Logged In: </h4>
-                {user?.email}
-            </div>
-            <div className="logout-user">
-                <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--medium' onClick={logout}> Sign Out </Button>
+                <h4> User Logged In: {user?.email} </h4>
             </div>
 
-
-
-
+            <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--medium' onClick={logout}> SIGN OUT </Button>
         </div>
     );
 }

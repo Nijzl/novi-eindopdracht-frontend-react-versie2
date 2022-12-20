@@ -41,22 +41,12 @@ function Navbar(){
                     <ul className={click ? "nav-menu active" : "nav-menu"}>
                         <li className="nav-item">
                             <Link to="/" className="nav-links" onClick={closeMobileMenu}>
-                                CLASSIC QUIZ
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/flashcards" className="nav-links" onClick={closeMobileMenu}>
-                                FLASHCARDS
+                                GAMES LIST
                             </Link>
                         </li>
                         <li className="nav-item">
                             <Link to="/allrecipes" className="nav-links" onClick={closeMobileMenu}>
-                                WORDLE
-                            </Link>
-                        </li>
-                        <li className="nav-item">
-                            <Link to="/fridge" className="nav-links" onClick={closeMobileMenu}>
-                                DUOLINGO
+                                REVIEW
                             </Link>
                         </li>
                         <li className="nav-item">

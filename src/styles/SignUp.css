@@ -1,5 +1,5 @@
 .login-container {
-    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('../assets/food-banner.png');
+    background-image: linear-gradient(rgba(4,9,30,0.7), rgba(4,9,30,0.7)), url('../assets/game-signup.png');
     background-size: cover;
     height: 100vh;
     width: 100%;
@@ -11,12 +11,15 @@
     object-fit: contain;
 }
 
+.login-container h1{
+    color: #fff;
+    font-size: 75px;
+}
+
 .login-container h3 {
     color: #fff;
     margin-top: 50px;
     font-weight: 300;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
 }
 
 .login-container h4 {
@@ -24,8 +27,6 @@
     margin-top: 50px;
     margin-bottom: 25px;
     font-weight: 250;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
 }
 
 .login-container .auth-input {

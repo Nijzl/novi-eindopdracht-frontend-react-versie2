@@ -3,10 +3,11 @@ import FlashcardList from "../components/FlashcardList";
 import "../styles/Flashcards.css";
 import axios from 'axios';
 import { Button } from "../components/Button";
+import {Link} from "react-router-dom";
 
 function Flashcards(){
 
-    const [flashcards, setFlashcards] = useState(ruleFlashcards);
+    const [flashcards, setFlashcards] = useState([]);
     const [categories, setCategories] = useState([])
 
     const categoryEl = useRef();
@@ -71,9 +72,25 @@ function Flashcards(){
                     <Button className='btns' buttonStyle='btn--outline' buttonSize='btn--medium'> Generate </Button>
                 </div>
             </form>
+
             <div className="card-container">
                 <FlashcardList flashcards={flashcards}/>
             </div>
+
+            <div className="question-cta">
+                <h1> WELCOME TO FLASHCARD TRIVIA </h1>
+                <p> Select your category and number of questions above </p>
+                <p> Click on a card to see the answer </p>
+                <p> Enjoy! </p>
+                <h2> GOT SOME GOOD TRIVIA FOR US? </h2>
+                <Link to="/" className="btn-mobile">
+                    <Button className='btns' buttonStyle='btn--primary' buttonSize='btn--large'>
+                        SUBMIT A QUESTION
+                    </Button>
+                </Link>
+            </div>
+
+
         </>
     );
 
@@ -81,7 +98,7 @@ function Flashcards(){
 
 }
 
-const ruleFlashcards = [
+/*const ruleFlashcards = [
     {
         id:1,
         question: "Welcome to Flashcard Trivia!",
@@ -106,6 +123,6 @@ const ruleFlashcards = [
         answer: "Get clicking!",
         options: []
     }
-]
+]*/
 
 export default Flashcards;

@@ -93,36 +93,6 @@ function Flashcards(){
 
         </>
     );
-
-
-
 }
-
-/*const ruleFlashcards = [
-    {
-        id:1,
-        question: "Welcome to Flashcard Trivia!",
-        answer: "This is a flashcard!",
-        options: []
-    },
-    {
-        id:2,
-        question: "Select your category and number of questions above",
-        answer: "You can do this as often as you want with as many cards as you want",
-        options: []
-    },
-    {
-        id:3,
-        question: "Click the card to see the answer",
-        answer: "Yes, like that!",
-        options: []
-    },
-    {
-        id:4,
-        question: "We hope you enjoy!",
-        answer: "Get clicking!",
-        options: []
-    }
-]*/
 
 export default Flashcards;
